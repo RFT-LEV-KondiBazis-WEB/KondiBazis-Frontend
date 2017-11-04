@@ -1,11 +1,15 @@
-export const getUser = ({ dispatch, commit, state}, id) => {
+export const getCustomers = ({ dispatch, commit }, page) => {
+    
+}
+
+export const getCustomer = ({ dispatch, commit, state}, id) => {
 
 }
 
-export const createUser = ({ dispatch, commit }, { payload, context }) => {
+export const createCustomer = ({ dispatch, commit }, { payload, context }) => {
 
 }
 
-export const getUsers = ({ dispatch, commit }, page) => {
+export const deleteCustomer = ({ dispatch, commit }, id) => {
   
 }
