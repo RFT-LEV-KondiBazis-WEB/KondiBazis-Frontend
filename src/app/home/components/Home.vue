@@ -49,8 +49,9 @@
     <div class="container py-8">
       <div class="constrain-xl mx-auto">
         <div class="card border-rounded box-shadow">
-          <div class="py-4 px-6 border-b">
+          <div class="py-4 px-6 border-b flex-spaced">
             <h2 class="text-regular">Gyms</h2>
+            <a href="" class="btn btn-primary">Create</a>
           </div>
           <div v-for="n in 10" class="py-4 px-6 flex-spaced border-b">
             <div>

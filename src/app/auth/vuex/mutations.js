@@ -11,9 +11,9 @@ export const setToken = (state, token) => {
 }
 
 export const setAuthenticated = (state, trueOrFalse) => {
-  state.user.authenticated = trueOrFalse
+  state.authenticated = trueOrFalse
 }
 
 export const setUserData = (state, data) => {
-  state.user.data = data
+  state.user = data
 }

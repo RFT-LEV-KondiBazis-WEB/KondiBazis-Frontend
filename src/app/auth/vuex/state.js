@@ -1,6 +1,4 @@
 export default {
-  user: {
-    authenticated: false,
-    data: null
-  }
+  authenticated: false,  
+  user: {}
 }

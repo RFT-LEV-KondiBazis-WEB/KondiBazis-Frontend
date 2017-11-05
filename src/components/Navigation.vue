@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-light border-t border-brand bw3 box-shadow" v-if="user.authenticated">
+  <div class="bg-light border-t border-brand border-brand-gradient bw3 box-shadow" v-if="authenticated">
     <nav>
       <div class="container">
         <div class="flex-spaced flex-y-center py-4">
@@ -22,7 +22,7 @@
           </nav>
 
           <div>
-            <span class="px-2">{{ user.data.username }}</span>
+            <router-link :to="{ name: 'profile' }" class="px-2">{{ user.username }}</router-link>
             <a href="#" @click.prevent="signout" class="link-plain link-muted">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon text-light-muted" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM7 6v2a3 3 0 1 0 6 0V6a3 3 0 1 0-6 0zm-3.65 8.44a8 8 0 0 0 13.3 0 15.94 15.94 0 0 0-13.3 0z"/></svg>
             </a>
@@ -40,7 +40,8 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      user: 'auth/user'
+      user: 'auth/user',
+      authenticated: 'auth/authenticated'
     })
   },
 
