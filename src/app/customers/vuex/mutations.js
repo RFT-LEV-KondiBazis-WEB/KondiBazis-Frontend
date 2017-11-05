@@ -9,11 +9,3 @@ export const setCustomer = (state, customer) => {
 export const setMeta = (state, meta) => {
     state.meta = meta
 }
-
-export const setCustomersLoading = (state, status) => {
-    state.customersLoading = status
-}
-
-export const setCustomerLoading = (state, status) => {
-    state.customerLoading = status
-}

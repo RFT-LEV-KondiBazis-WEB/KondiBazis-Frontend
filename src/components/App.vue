@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <Navigation/>
-    <div class="container md:py-8">
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 

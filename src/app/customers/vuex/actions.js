@@ -1,5 +1,8 @@
+import axios from 'axios'
+import { API_URL } from '../../constants'
+
 export const getCustomers = ({ dispatch, commit }, page) => {
-    
+  
 }
 
 export const getCustomer = ({ dispatch, commit, state}, id) => {
