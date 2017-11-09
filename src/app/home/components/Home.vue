@@ -1,6 +1,6 @@
 <template>
   <div>
-    <statistic></statistic>
+    <statistics></statistics>
 
     <div class="container py-8">
       <div class="constrain-xl mx-auto">
@@ -32,9 +32,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Statistic from "./Statistic.vue";
+import Statistics from './Statistics.vue'
 
 export default {
-  components: { Statistic }
+  components: { Statistics }
 }
 </script>

@@ -9,5 +9,14 @@ export default [
       guest: false,
       needsAuth: true
     }
-  }
+  },/*
+  {
+    path: '/gyms/:id',
+    name: 'gym',
+    component: '',
+    props: true,
+    meta: {
+      needsAuth: true
+    }
+  }*/
 ]
