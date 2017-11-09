@@ -1,24 +1,26 @@
 <template>
   <div class="container py-8">
-    <div class="constrain-sm mx-auto">
+    <div class="constrain-lg mx-auto">
       <div class="card br1 box-shadow">
         <div class="px-8 py-6">
           <div class="text-xl text-center text-regular mb-6">Profile</div>
             <form @submit.prevent="submit">
-              <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.first_name }">
-                <label for="first_name" class="block text-grey-darker text-sm font-bold mb-2">First name</label>
-                <input type="text" id="first_name" class="form-control" name="first_name" placeholder="First name" autofocus v-model="user.first_name">
-                <span class="help-block" v-if="errors.first_name">
-                  {{ errors.first_name[0] }}
-                </span>
-              </div>
+              <div class="flex row md:mb-0">
+                  <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.first_name }">
+                  <label for="first_name" class="block text-grey-darker text-sm font-bold mb-2">First name</label>
+                  <input type="text" id="first_name" class="form-control" name="first_name" placeholder="First name" autofocus v-model="user.first_name">
+                  <span class="help-block" v-if="errors.first_name">
+                    {{ errors.first_name[0] }}
+                  </span>
+                </div>
 
-              <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.last_name }">
-                <label for="last_name" class="block text-grey-darker text-sm font-bold mb-2">Last name</label>
-                <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" v-model="user.last_name">
-                <span class="help-block" v-if="errors.last_name">
-                  {{ errors.last_name[0] }}
-                </span>
+                <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.last_name }">
+                  <label for="last_name" class="block text-grey-darker text-sm font-bold mb-2">Last name</label>
+                  <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" v-model="user.last_name">
+                  <span class="help-block" v-if="errors.last_name">
+                    {{ errors.last_name[0] }}
+                  </span>
+                </div>
               </div>
 
               <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.username }">
