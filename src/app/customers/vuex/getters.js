@@ -1,11 +1,11 @@
-export const allUsers = (state) => {
-  return state.users
+export const currentCustomer = (state) => {
+  return state.customer
+}
+
+export const allCustomers = (state) => {
+  return state.customers
 }
 
 export const getMeta = (state) => {
   return state.meta
-}
-
-export const loadingUsers = (state) => {
-  return state.loadingUsers
 }
