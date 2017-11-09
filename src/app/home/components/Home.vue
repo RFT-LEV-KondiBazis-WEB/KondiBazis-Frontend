@@ -1,50 +1,6 @@
 <template>
   <div>
-    <div class="bg-brand-gradient">
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <div class="py-4 px-6 border-l border-light-overlay">
-              <p class="text-2xl text-light text-hairline">$3.233</p>
-              <p class="text-light-soft text-light">Total revenue</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="py-4 px-6 border-l border-light-overlay">
-              <p class="text-2xl text-light text-hairline">$233</p>
-              <p class="text-light-soft text-light">Yesterday</p>
-            </div>
-          </div>
-          <div class="col-4">
-          <div class="py-4 px-6 border-l border-light-overlay">
-              <p class="text-2xl text-light text-hairline">$133</p>
-              <p class="text-light-soft text-light">Today</p>
-            </div>
-          </div>  
-        </div>
-      </div>
-      <div class="bg-overlay-faint">
-        <div class="container">
-          <div class="row">
-            <div class="col-4">
-              <div class="px-6 py-2 border-l borderl-light-overlay">
-                <p class="text-light"><strong class="text-medium">213</strong> customers</p>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="px-6 py-2 border-l borderl-light-overlay">
-                <p class="text-light"><strong class="text-medium">12</strong> gyms</p>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="px-6 py-2 border-l borderl-light-overlay">
-                <p class="text-light"><strong class="text-medium">34</strong> passes</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <statistic></statistic>
 
     <div class="container py-8">
       <div class="constrain-xl mx-auto">
@@ -54,15 +10,18 @@
             <a href="" class="btn btn-primary">Create</a>
           </div>
           <div v-for="n in 10" class="py-4 px-6 flex-spaced border-b">
-            <div>
+            <div class="col-6">
               <p>Delta Fitness</p>
               <p class="text-sm">Debrecen .....</p>
             </div>
-            <div>
+            <div class="col-4">
               <p class="text-dark-muted">67 customers</p>
             </div>
-            <div>
-              <p>$69</p>
+            <div class="col-2 text-right">
+              <p class="text-sm">
+                <a href="" class="text-brand">Edit</a> |
+                <a href="" class="text-danger">Delete</a>
+              </p>
             </div>
           </div>
         </div>
@@ -73,8 +32,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Statistic from "./Statistic.vue";
 
 export default {
-  
+  components: { Statistic }
 }
 </script>
