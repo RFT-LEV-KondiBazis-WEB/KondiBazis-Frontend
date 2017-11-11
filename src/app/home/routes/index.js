@@ -1,22 +1,30 @@
-import Home  from '../components/Home.vue'
+import Gyms  from '../components/Gyms.vue'
+import Gym from '../components/Gym.vue'
 
 export default [
   {
     path: '/',
     name: 'home',
-    component: Home,
+    component: Gyms,
     meta: {
-      guest: false,
       needsAuth: true
     }
-  },/*
+  },
   {
-    path: '/gyms/:id',
-    name: 'gym',
-    component: '',
+    path: '/gyms/create',
+    name: 'create-gym',
+    component: Gym,
+    meta: {
+      needsAuth: true
+    }
+  },
+  {
+    path: '/gyms/update/:id',
+    name: 'update-gym',
+    component: Gym,
     props: true,
     meta: {
       needsAuth: true
     }
-  }*/
+  }
 ]

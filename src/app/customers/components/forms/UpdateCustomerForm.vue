@@ -50,7 +50,7 @@
         <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.gender }">
           <label for="gender" class="block text-grey-darker text-sm font-bold mb-2">Gender</label>
           <select id="gender" class="form-control" name="gender" placeholder="Gender" v-model="customer.gender">
-            <option value="">Select your gender</option>
+            <option value="">Select gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
