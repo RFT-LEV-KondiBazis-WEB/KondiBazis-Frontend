@@ -32,8 +32,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Gravatar from '../../../components/Gravatar.vue'
 
 export default {
+  components: {
+    Gravatar
+  },
+
   computed: {
     ...mapGetters({
       customers: 'customers/allCustomers'
