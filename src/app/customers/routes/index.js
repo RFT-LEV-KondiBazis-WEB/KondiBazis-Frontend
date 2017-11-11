@@ -1,3 +1,4 @@
+import Customer from '../components/Customer.vue'
 import Customers from '../components/Customers.vue'
 
 export default [
@@ -10,9 +11,18 @@ export default [
     }
   },
   {
-    path: '/customers/:id',
+    path: '/customers/create',
+    component: Customer,
+    name: 'create-customer',
+    meta: {
+      needsAuth: true
+    }
+  },
+  {
+    path: '/customers/update/:id',
+    component: Customer,
     props: true,
-    name: 'customer',
+    name: 'edit-customer',
     meta: {
       needsAuth: true
     }

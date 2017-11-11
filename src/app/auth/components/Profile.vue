@@ -6,7 +6,7 @@
           <div class="text-xl text-center text-regular mb-6">Profile</div>
             <form @submit.prevent="submit">
               <div class="flex row md:mb-0">
-                  <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.first_name }">
+                <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.first_name }">
                   <label for="first_name" class="block text-grey-darker text-sm font-bold mb-2">First name</label>
                   <input type="text" id="first_name" class="form-control" name="first_name" placeholder="First name" autofocus v-model="user.first_name">
                   <span class="help-block" v-if="errors.first_name">
