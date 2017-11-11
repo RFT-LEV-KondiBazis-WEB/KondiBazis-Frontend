@@ -61,7 +61,7 @@
 
           <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.birth_date }">
             <label for="birth_date" class="block text-grey-darker text-sm font-bold mb-2">Birth date</label>
-            <input type="text" id="birth_date" class="form-control" name="birth_date" placeholder="Birth date" autofocus v-model="birth_date">
+            <input type="text" id="birth_date" class="form-control" name="birth_date" placeholder="Birth date" v-model="birth_date">
             <span class="help-block" v-if="errors.birth_date">
               {{ errors.birth_date[0] }}
             </span>
