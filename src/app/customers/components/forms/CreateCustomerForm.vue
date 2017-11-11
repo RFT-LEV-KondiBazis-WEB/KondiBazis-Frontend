@@ -102,7 +102,13 @@ export default {
     send() {
       this.createCustomer({
         payload: {
-
+          first_name: this.first_name,
+          last_name: this.last_name,
+          email: this.email,
+          phone: this.phone,
+          password: this.password,
+          gender: this.gender,
+          birth_date: this.birth_date,
         }
       }).then(() => {
         this.$router.replace({ name: 'customers' })
