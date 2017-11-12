@@ -1,5 +1,5 @@
 export default {
-  gym: null,
-  gyms: [],
+  pass: null,
+  passes: [],
   meta: [],
 }
