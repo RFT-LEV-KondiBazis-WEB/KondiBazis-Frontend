@@ -3,8 +3,8 @@ import axios from 'axios'
 
 export const setHttpToken = (token) => {
   if (isEmpty(token)) {
-    axios.defaults.headers.common['Authorization'] = null
+    delete axios.defaults.headers.common['Authorization']
+  } else {
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
   }
-
-  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
 }

@@ -33,7 +33,7 @@ export const updateProfile = ({ dispatch }, { payload }) => {
 }
 
 export const fetchUser = ({ commit }) => {
-  return axios.get(API_URL + '/me').then((response) => {
+  return axios.get(API_URL + '/profil').then((response) => {
     commit('setAuthenticated', true)
     commit('setUserData', response.data.data)
   })
@@ -66,7 +66,7 @@ export const checkTokenExists = ({ commit, dispatch }, token) => {
   })
 }
 
-export const clearAuth = ({ commit }, token ) => {
+export const clearAuth = ({ commit }, token) => {
   commit('setAuthenticated', false)
   commit('setUserData', null)
   commit('setToken', null)

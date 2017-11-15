@@ -11,19 +11,19 @@
           <div class="text-xl text-center text-regular mb-6">Register</div>
           <form @submit.prevent="submit">
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.first_name }">
-              <label for="first_name" class="block text-grey-darker text-sm font-bold mb-2">First name</label>
-              <input type="text" id="first_name" class="form-control" name="first_name" placeholder="First name" autofocus v-model="first_name">
-              <span class="help-block" v-if="errors.first_name">
-                {{ errors.first_name[0] }}
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.firstName }">
+              <label for="firstName" class="block text-grey-darker text-sm font-bold mb-2">First name</label>
+              <input type="text" id="firstName" class="form-control" name="firstName" placeholder="First name" autofocus v-model="firstName">
+              <span class="help-block" v-if="errors.firstName">
+                {{ errors.firstName[0] }}
               </span>
             </div>
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.last_name }">
-              <label for="last_name" class="block text-grey-darker text-sm font-bold mb-2">Last name</label>
-              <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" v-model="last_name">
-              <span class="help-block" v-if="errors.last_name">
-                {{ errors.last_name[0] }}
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.lastName }">
+              <label for="lastName" class="block text-grey-darker text-sm font-bold mb-2">Last name</label>
+              <input type="text" id="lastName" class="form-control" name="lastName" placeholder="Last name" v-model="lastName">
+              <span class="help-block" v-if="errors.lastName">
+                {{ errors.lastName[0] }}
               </span>
             </div>
 
@@ -68,8 +68,8 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      first_name: null,
-      last_name: null,
+      firstName: null,
+      lastName: null,
       username: null,
       email: null,
       password: null,
@@ -85,8 +85,8 @@ export default {
     submit() {
       this.register({
         payload: {
-          first_name: this.first_name,
-          last_name: this.last_name,
+          firstName: this.firstName,
+          firstName: this.firstName,
           username: this.username,
           email: this.email,
           password: this.password
