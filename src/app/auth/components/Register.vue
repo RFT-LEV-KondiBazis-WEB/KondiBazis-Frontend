@@ -11,43 +11,43 @@
           <div class="text-xl text-center text-regular mb-6">Register</div>
           <form @submit.prevent="submit">
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.firstName }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('firstName') }">
               <label for="firstName" class="block text-grey-darker text-sm font-bold mb-2">First name</label>
               <input type="text" id="firstName" class="form-control" name="firstName" placeholder="First name" autofocus v-model="firstName">
-              <span class="help-block" v-if="errors.firstName">
-                {{ errors.firstName[0] }}
+              <span class="help-block" v-if="errors.has('firstName')">
+                {{ errors.get('firstName').validationMessage }}
               </span>
             </div>
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.lastName }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('lastName') }">
               <label for="lastName" class="block text-grey-darker text-sm font-bold mb-2">Last name</label>
               <input type="text" id="lastName" class="form-control" name="lastName" placeholder="Last name" v-model="lastName">
-              <span class="help-block" v-if="errors.lastName">
-                {{ errors.lastName[0] }}
+              <span class="help-block" v-if="errors.has('lastName')">
+                {{ errors.get('lastName').validationMessage }}
               </span>
             </div>
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.username }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('username') }">
               <label for="username" class="block text-grey-darker text-sm font-bold mb-2">Username</label>
               <input type="text" id="username" class="form-control" name="username" placeholder="Username" v-model="username">
-              <span class="help-block" v-if="errors.username">
-                {{ errors.username[0] }}
+              <span class="help-block" v-if="errors.has('username')">
+                {{ errors.get('username').validationMessage }}
               </span>
             </div>
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.email }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('email') }">
               <label for="email" class="block text-grey-darker text-sm font-bold mb-2">Email address</label>
               <input type="text" id="email" class="form-control" name="email" placeholder="Email address" v-model="email">
-              <span class="help-block" v-if="errors.email">
-                {{ errors.email[0] }}
+              <span class="help-block" v-if="errors.has('email')">
+                {{ errors.get('email').validationMessage }}
               </span>
             </div>
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.password }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('password') }">
               <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
               <input type="password" id="password" class="form-control" name="password" placeholder="******************" v-model="password">
-              <span class="help-block" v-if="errors.password">
-                {{ errors.password[0] }}
+              <span class="help-block" v-if="errors.has('password')">
+                {{ errors.get('password').validationMessage }}
               </span>
             </div>
 
@@ -64,6 +64,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import Errors from '../../../helpers/Errors'
 
 export default {
   data() {
@@ -73,7 +74,7 @@ export default {
       username: null,
       email: null,
       password: null,
-      errors: []  
+      errors: new Errors()
     }
   },
 
@@ -94,7 +95,7 @@ export default {
       }).then(() => {
         this.$router.replace({ name: 'home' })
       }).catch((errors) => {
-        this.errors = errors
+        this.errors.record(errors)
       })
     }
   }

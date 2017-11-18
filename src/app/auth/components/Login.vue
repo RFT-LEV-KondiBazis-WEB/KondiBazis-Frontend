@@ -10,19 +10,19 @@
         <div class="px-8 py-6">
           <div class="text-xl text-center text-regular mb-6">Login</div>
           <form @submit.prevent="submit">
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.username }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('username') }">
               <label for="username" class="block text-grey-darker text-sm font-bold mb-2">Username</label>
               <input type="text" id="username" class="form-control" name="username" placeholder="Username" autofocus v-model="username">
-              <span class="help-block" v-if="errors.username">
-                {{ errors.username[0] }}
+              <span class="help-block" v-if="errors.has('username')">
+                {{ errors.get('username').validationMessage }}
               </span>
             </div>
 
-            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.password }">
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('password') }">
               <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
               <input type="password" id="password" class="form-control" name="password" placeholder="******************" v-model="password">
-              <span class="help-block" v-if="errors.password">
-                {{ errors.password[0] }}
+              <span class="help-block" v-if="errors.has('password')">
+                {{ errors.get('password').validationMessage }}
               </span>
             </div>
 
@@ -41,6 +41,7 @@
 import { mapActions } from 'vuex'
 import { isEmpty } from 'lodash'
 import localforage from 'localforage'
+import Errors from '../../../helpers/Errors'
 
 export default {
   data() {
@@ -48,7 +49,7 @@ export default {
         name: null,
         username: null,
         password: null,
-        errors: []
+        errors: new Errors()
       }
   },
 
@@ -72,7 +73,7 @@ export default {
           this.$router.replace({ name: name })
         })
       }).catch((errors) => {
-        this.errors = errors
+        this.errors.record(errors)
       })
     }
   }
