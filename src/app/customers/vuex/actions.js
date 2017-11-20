@@ -8,13 +8,13 @@ export const getCustomers = ({ dispatch, commit }, page) => {
 }
 
 export const getCustomer = ({ dispatch, commit, state }, id) => {
-  return axios.get(API_URL + '/api/customers/' + id).then((response) => {
+  return axios.get(API_URL + '/customers/' + id).then((response) => {
     commit('setCustomer', response.data.data)
   })
 }
 
 export const createCustomer = ({ dispatch, commit }, { payload }) => {
-  return axios.post(API_URL + '/api/customers', payload).then((response) => {
+  return axios.post(API_URL + '/customers', payload).then((response) => {
 
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
