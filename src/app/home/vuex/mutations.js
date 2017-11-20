@@ -9,3 +9,7 @@ export const setGym = (state, gym) => {
 export const setMeta = (state, meta) => {
   state.meta = meta
 }
+
+export const appendToGyms = (state, gym) => {
+  state.gyms.unshift(gym)
+}
