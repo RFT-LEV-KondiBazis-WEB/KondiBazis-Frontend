@@ -5,7 +5,3 @@ export const currentCustomer = (state) => {
 export const allCustomers = (state) => {
   return state.customers
 }
-
-export const getMeta = (state) => {
-  return state.meta
-}

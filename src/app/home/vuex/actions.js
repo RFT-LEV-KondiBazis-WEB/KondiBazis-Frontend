@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { API_URL } from '../../constants'
 
-export const getGyms = ({ dispatch, commit }, page) => {
-  axios.get(API_URL + '/api/gyms?page=' + page).then((response) => {
+export const getGyms = ({ dispatch, commit }) => {
+  axios.get(API_URL + '/gyms').then((response) => {
     commit('setGyms', response.data.data)
   })
 }
@@ -15,23 +15,23 @@ export const getGym = ({ dispatch, commit, state }, id) => {
 
 export const createGym = ({ dispatch, commit }, { payload }) => {
   return axios.post(API_URL + '/gyms/create', payload).then((response) => {
-    commit('appendToGyms', response.data.data)
+    commit('createGym', response.data.data)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
   })
 }
 
-export const updateGym = ({ dispatch, payload }, id) => {
+export const updateGym = ({ payload }, id) => {
   return axios.post(API_URL + 'gyms/update/' + id, payload).then((response) => {
-
+    commit('updateGym', id, response.data.data)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
   })
 }
 
-export const deleteGym = ({ dispatch, commit }, id) => {
+export const deleteGym = ({ commit }, id) => {
   return axios.delete(API_URL + '/gyms/delete/' + id).then((response) => {
-
+    commit('deleteGym', id)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
   })

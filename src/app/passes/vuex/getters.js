@@ -5,7 +5,3 @@ export const currentPass = (state) => {
 export const allPasses = (state) => {
   return state.passes
 }
-
-export const getMeta = (state) => {
-  return state.meta
-}

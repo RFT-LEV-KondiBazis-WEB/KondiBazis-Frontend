@@ -5,7 +5,3 @@ export const currentGym = (state) => {
 export const allGyms = (state) => {
   return state.gyms
 }
-
-export const getMeta = (state) => {
-  return state.meta
-}

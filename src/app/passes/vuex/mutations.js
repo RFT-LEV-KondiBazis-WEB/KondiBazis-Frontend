@@ -5,7 +5,3 @@ export const setPasses = (state, passes) => {
 export const setPass = (state, pass) => {
     state.pass = pass
 }
-
-export const setMeta = (state, meta) => {
-    state.meta = meta
-}
