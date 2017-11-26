@@ -22,7 +22,7 @@ export const createCustomer = ({ commit }, { payload }) => {
 }
 
 export const updateCustomer = ({ payload }, id) => {
-  return axios.post(API_URL + '/customers/update' + id, payload).then((response) => {
+  return axios.put(API_URL + '/customers/update' + id, payload).then((response) => {
     commit('updateCustomer', id, response.data.data)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)

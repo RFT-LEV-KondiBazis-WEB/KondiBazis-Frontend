@@ -22,7 +22,7 @@ export const createGym = ({ dispatch, commit }, { payload }) => {
 }
 
 export const updateGym = ({ payload }, id) => {
-  return axios.post(API_URL + 'gyms/update/' + id, payload).then((response) => {
+  return axios.put(API_URL + 'gyms/update/' + id, payload).then((response) => {
     commit('updateGym', id, response.data.data)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
