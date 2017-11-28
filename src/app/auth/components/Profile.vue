@@ -39,12 +39,23 @@
                 </span>
               </div>
 
-              <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('password') }">
-                <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
-                <input type="password" id="password" class="form-control" name="password" placeholder="******************" v-model="user.password">
-                <span class="help-block" v-if="errors.has('password')">
-                  {{ errors.get('password').validationMessage }}
-                </span>
+              <div class="flex row md:mb-0">
+                <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('password') }">
+                  <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
+                  <input type="password" id="password" class="form-control" name="password" placeholder="******************" v-model="user.password">
+                  <span class="help-block" v-if="errors.has('password')">
+                    {{ errors.get('password').validationMessage }}
+                  </span>
+                </div>
+
+                <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('passwordConfirm') }">
+                  <label for="passwordConfirm" class="block text-grey-darker text-sm font-bold mb-2">Password confirmation</label>
+                  <input type="password" id="passwordConfirm" class="form-control" name="passwordConfirm" placeholder="******************" v-model="user.passwordConfirm">
+                  <span class="help-block" v-if="errors.has('passwordConfirm')">
+                    {{ errors.get('passwordConfirm').validationMessage }}
+                  </span>
+                </div>
+
               </div>
 
               <div class="col-md-8 col-md-offset-4">
@@ -81,7 +92,13 @@ export default {
 
     submit() {
       this.updateProfile({
-        payload: this.user
+        payload: {
+          firstName: this.user.firstName,
+          lastName: this.user.lastName,
+          email: this.user.email,
+          password: this.user.password,
+          passwordConfirm: this.user.passwordConfirm
+        }
       }).then(() => {
         this.$router.replace({ name: 'home' })
       }).catch((errors) => {
