@@ -29,11 +29,11 @@
           </span>
         </div>
 
-        <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('phone') }">
-          <label for="phone" class="block text-grey-darker text-sm font-bold mb-2">Phone number</label>
-          <input type="text" id="phone" class="form-control" name="phone" v-model="customer.phone">
-          <span class="help-block" v-if="errors.has('phone')">
-            {{ errors.get('phone').validationMessage }}
+        <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('phoneNumber') }">
+          <label for="phoneNumber" class="block text-grey-darker text-sm font-bold mb-2">Phone number</label>
+          <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" v-model="customer.phoneNumber">
+          <span class="help-block" v-if="errors.has('phoneNumber')">
+            {{ errors.get('phoneNumber').validationMessage }}
           </span>
         </div>
       </div>
@@ -59,11 +59,11 @@
           </span>
         </div>
 
-        <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('birth_date') }">
-          <label for="birth_date" class="block text-grey-darker text-sm font-bold mb-2">Birth date</label>
-          <input type="text" id="birth_date" class="form-control" name="birth_date" v-model="customer.birth_date">
-          <span class="help-block" v-if="errors.has('birth_date')">
-            {{ errors.get('birth_date').validationMessage }}
+        <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('birthdayDate') }">
+          <label for="birthdayDate" class="block text-grey-darker text-sm font-bold mb-2">Birth date</label>
+          <input type="text" id="birthdayDate" class="form-control" name="birthdayDate" v-model="customer.birthdayDate">
+          <span class="help-block" v-if="errors.has('birthdayDate')">
+            {{ errors.get('birthdayDate').validationMessage }}
           </span>
         </div>
       </div>
@@ -102,6 +102,7 @@ export default {
 
     send() {
       this.updateCustomer({
+        id: this.customer.id,
         payload: this.customer
       }).then(() => {
         this.$router.replace({ name: 'customers' })
