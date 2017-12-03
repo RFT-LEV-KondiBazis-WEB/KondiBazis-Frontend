@@ -24,7 +24,7 @@ export const login = ({ dispatch }, { payload }) => {
   })
 }
 
-export const updateProfile = ({ dispatch }, { payload }) => {
+export const updateProfile = ({ commit }, { payload }) => {
   return axios.put(API_URL + '/user/update', payload).then((response) => {
     commit('setUserData', response.data.data)
   }).catch((error) => {

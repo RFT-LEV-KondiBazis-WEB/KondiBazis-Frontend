@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-8">
+  <div class="container py-8" v-if="user">
     <div class="constrain-lg mx-auto">
       <div class="card br1 box-shadow">
         <div class="px-8 py-6">
@@ -87,7 +87,8 @@ export default {
 
   methods: {
     ...mapActions({
-      'updateProfile': 'auth/updateProfile'
+      'updateProfile': 'auth/updateProfile',
+      'fetchUser': 'auth/fetchUser'
     }),
 
     submit() {
@@ -105,6 +106,10 @@ export default {
         this.errors.record(errors)
       })
     }
+  },
+
+  mounted() {
+    this.fetchUser()
   }
 }
 </script>
