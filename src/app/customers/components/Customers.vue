@@ -9,15 +9,15 @@
         <div v-if="customers.length">
           <div class="py-4 px-6 flex-spaced border-b" v-for="customer in customers" v-bind:key="customer.id">
             <div class="col-2">
-
+              <gravatar :email="customer.email"></gravatar>
             </div>
             <div class="col-8">
 
             </div>
             <div class="col-2 text-right">
               <p class="text-sm">
-                <a href="" class="text-brand">Edit</a> |
-                <a href="" class="text-danger">Delete</a>
+                <router-link :to="{ name: 'update-customer', params: { id: customer.id } }" class="text-brand">Edit</router-link> |
+                <a href="#" @click.prevent="confirmDelete(customer)" class="text-danger">Delete</a>
               </p>
             </div>
           </div>

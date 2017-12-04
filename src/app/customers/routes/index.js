@@ -22,7 +22,7 @@ export default [
     path: '/customers/update/:id',
     component: Customer,
     props: true,
-    name: 'edit-customer',
+    name: 'update-customer',
     meta: {
       needsAuth: true
     }
