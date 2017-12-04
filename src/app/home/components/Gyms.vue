@@ -33,12 +33,14 @@
 </template>
 
 <script>
+import swal from 'sweetalert'
 import { mapGetters, mapActions } from 'vuex'
-import swal from 'sweetalert' 
 import Statistics from './Statistics.vue'
 
 export default {
-  components: { Statistics },
+  components: {
+    Statistics
+  },
 
   computed: {
     ...mapGetters({

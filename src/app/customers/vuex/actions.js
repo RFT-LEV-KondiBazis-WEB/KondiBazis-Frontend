@@ -31,6 +31,8 @@ export const updateCustomer = ({ commit }, { id, payload }) => {
 
 export const deleteCustomer = ({ commit }, customer) => {
   return axios.get(API_URL + '/customers/delete/' + customer.id).then((response) => {
-    commit('deleteCustomer', customer.id)
+    commit('deleteCustomer', customer)
+  }).catch((error) => {
+    return Promise.reject(error.response.data.errors)
   })
 }

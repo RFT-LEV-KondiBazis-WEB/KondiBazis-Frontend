@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import swal from 'sweetalert'
 import { mapGetters, mapActions } from 'vuex'
 import Gravatar from '../../../components/Gravatar.vue'
 
@@ -47,12 +48,27 @@ export default {
 
   methods: {
     ...mapActions({
-      getCustomers: 'customers/getCustomers'
-    })
+      getCustomers: 'customers/getCustomers',
+      deleteCustomer: 'customers/deleteCustomer'
+    }),
+
+    confirmDelete(customer) {
+      swal({
+        title: "Are you sure?",
+        text: "Are you sure that you want to delete this customer?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((wantDelete) => {
+        if (wantDelete) {
+          deleteCustomer(customer)
+        }
+      })
+    }
   },
 
   mounted() {
-    this.getCustomers(1)
+    this.getCustomers()
   }
 }
 </script>
