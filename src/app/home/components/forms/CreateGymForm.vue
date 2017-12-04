@@ -95,7 +95,7 @@ export default {
           openingHours: this.openingHours
         }
       }).then(() => {
-        this.$router.replace({ name: 'gyms' })
+        this.$router.replace({ name: 'home' })
       }).catch((errors) => {
         this.errors.record(errors)
       })

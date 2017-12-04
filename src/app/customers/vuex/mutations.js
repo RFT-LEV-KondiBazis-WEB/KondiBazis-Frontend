@@ -15,5 +15,5 @@ export const updateCustomer = (state, id, data) => {
 }
 
 export const deleteCustomer = (state, customer) => {
-  state.customers.splice(customers.indexOf(customer), 1)
+  state.customers.splice(state.customers.indexOf(customer), 1)
 }

@@ -29,8 +29,8 @@ export const updateCustomer = ({ commit }, { id, payload }) => {
   })
 }
 
-export const deleteCustomer = ({ commit }, id) => {
-  return axios.get(API_URL + '/customers/delete/' + id).then((response) => {
-    commit('deleteCustomer', id)
+export const deleteCustomer = ({ commit }, customer) => {
+  return axios.get(API_URL + '/customers/delete/' + customer.id).then((response) => {
+    commit('deleteCustomer', customer.id)
   })
 }

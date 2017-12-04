@@ -21,17 +21,17 @@ export const createGym = ({ commit }, { payload }) => {
   })
 }
 
-export const updateGym = ({ payload }, id) => {
-  return axios.put(API_URL + 'gyms/update/' + id, payload).then((response) => {
+export const updateGym = ({ commit }, { id, payload }) => {
+  return axios.put(API_URL + '/gyms/update/' + id, payload).then((response) => {
     commit('updateGym', id, response.data.data)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
   })
 }
 
-export const deleteGym = ({ commit }, id) => {
-  return axios.delete(API_URL + '/gyms/delete/' + id).then((response) => {
-    commit('deleteGym', id)
+export const deleteGym = ({ commit }, gym) => {
+  return axios.get(API_URL + '/gyms/delete/' + gym.id).then((response) => {
+    commit('deleteGym', gym)
   }).catch((error) => {
     return Promise.reject(error.response.data.errors)
   })

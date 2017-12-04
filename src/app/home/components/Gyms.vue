@@ -11,17 +11,14 @@
           </div>
           <div v-if="gyms.length">
             <div class="py-4 px-6 flex-spaced border-b" v-for="gym in gyms" v-bind:key="gym.id">
-              <div class="col-6">
+              <div class="col-10">
                 <p>{{ gym.name }}</p>
                 <p class="text-sm">{{ gym.city }}, {{ gym.address }}</p>
-              </div>
-              <div class="col-4">
-                <p class="text-dark-muted">67 customers</p>
               </div>
               <div class="col-2 text-right">
                 <p class="text-sm">
                   <router-link :to="{ name: 'update-gym', params: { id: gym.id } }" class="text-brand">Edit</router-link> |
-                  <a href="#" class="text-danger">Delete</a>
+                  <a href="#" @click.prevent="confirmDelete(gym)" class="text-danger">Delete</a>
                 </p>
               </div>
             </div>
@@ -37,6 +34,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import swal from 'sweetalert' 
 import Statistics from './Statistics.vue'
 
 export default {
@@ -50,12 +48,27 @@ export default {
 
   methods: {
     ...mapActions({
-      getGyms: 'home/getGyms'
-    })
+      getGyms: 'home/getGyms',
+      deleteGym: 'home/deleteGym'
+    }),
+
+    confirmDelete(gym) {
+      swal({
+        title: "Are you sure?",
+        text: "Are you sure that you want to delete this gym?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((wantDelete) => {
+        if (wantDelete) {
+          this.deleteGym(gym)
+        }
+      })
+    }
   },
 
   mounted() {
-    this.getGyms(1)
+    this.getGyms()
   }
 }
 </script>

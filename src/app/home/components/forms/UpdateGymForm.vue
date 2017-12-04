@@ -1,5 +1,5 @@
 <template>
-  <div class="px-8 py-6">
+  <div class="px-8 py-6" v-if="gym">
     <div class="text-xl text-regular mb-4">Update Gym</div>
     <form @submit.prevent="send()">
       <div class="flex row md:mb-0">
@@ -88,6 +88,7 @@ export default {
 
     send() {
       this.updateGym({
+        id: this.gym.id,
         payload: this.gym
       }).then(() => {
         //
