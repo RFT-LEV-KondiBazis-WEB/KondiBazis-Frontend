@@ -38,21 +38,12 @@
           </div>
         </div>
 
-        <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('password') }">
-          <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
-          <input type="password" id="password" class="form-control" name="password" placeholder="******************" v-model="password">
-          <span class="help-block" v-if="errors.get('password')">
-            {{ errors.get('password').validationMessage }}
-          </span>
-        </div>
-
         <div class="flex row md:mb-0">
           <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('gender') }">
             <label for="gender" class="block text-grey-darker text-sm font-bold mb-2">Gender</label>
             <select id="gender" class="form-control" name="gender" v-model="gender">
-              <option value="">Select gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
             </select>
             <span class="help-block" v-if="errors.has('gender')">
               {{ errors.get('gender').validationMessage }}
@@ -70,6 +61,7 @@
 
         <div class="col-md-8 col-md-offset-4">
           <button type="submit" class="btn btn-primary mb-4">Create</button>
+          <router-link :to="{ name: 'customers' }" class="ml-2">Cancel</router-link>
         </div>
       </form>
     </div>
@@ -88,8 +80,7 @@ export default {
       lastName: null,
       email: null,
       phoneNumber: null,
-      password: null,
-      gender: "",
+      gender: "MALE",
       birthdayDate: null,
       errors: new Errors()
     }
@@ -107,7 +98,6 @@ export default {
           lastName: this.lastName,
           email: this.email,
           phoneNumber: this.phoneNumber,
-          password: this.password,
           gender: this.gender,
           birthdayDate: this.birthdayDate,
         }

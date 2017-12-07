@@ -10,8 +10,9 @@ export const createCustomer = (state, customer) => {
   state.customers.push(customer)
 }
 
-export const updateCustomer = (state, id, data) => {
-
+export const updateCustomer = (state, customer) => {
+  let index = state.customers.findIndex(obj => obj.id == customer.id)
+  state.customers[index] = customer
 }
 
 export const deleteCustomer = (state, customer) => {

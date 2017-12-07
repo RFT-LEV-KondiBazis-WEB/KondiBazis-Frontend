@@ -1,5 +1,5 @@
 <template>
-  <div class="px-8 py-6">
+  <div class="px-8 py-6" v-if="customer">
     <div class="text-xl text-regular mb-4">Update Customer</div>
     <form @submit.prevent="send()">
       <div class="flex row md:mb-0">
@@ -38,21 +38,12 @@
         </div>
       </div>
 
-      <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('password') }">
-        <label for="password" class="block text-grey-darker text-sm font-bold mb-2">Password</label>
-        <input type="password" id="password" class="form-control" name="password" placeholder="******************" v-model="customer.password">
-        <span class="help-block" v-if="errors.has('password')">
-          {{ errors.get('password').validationMessage }}
-        </span>
-      </div>
-
       <div class="flex row md:mb-0">
         <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('gender') }">
           <label for="gender" class="block text-grey-darker text-sm font-bold mb-2">Gender</label>
           <select id="gender" class="form-control" name="gender" v-model="customer.gender">
-            <option value="">Select gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
           </select>
           <span class="help-block" v-if="errors.has('gender')">
             {{ errors.get('gender').validationMessage }}
@@ -70,6 +61,7 @@
 
       <div class="col-md-8 col-md-offset-4">
         <button type="submit" class="btn btn-primary mb-4">Update</button>
+        <router-link :to="{ name: 'customers' }" class="ml-2">Cancel</router-link>
       </div>
     </form>
   </div>
@@ -103,7 +95,14 @@ export default {
     send() {
       this.updateCustomer({
         id: this.customer.id,
-        payload: this.customer
+        payload: {
+          firstName: this.customer.firstName,
+          lastName: this.customer.lastName,
+          email: this.customer.email,
+          phoneNumber: this.customer.phoneNumber,
+          gender: this.customer.gender,
+          birthdayDate: this.customer.birthdayDate,
+        }
       }).then(() => {
         this.$router.replace({ name: 'customers' })
       }).catch((errors) => {

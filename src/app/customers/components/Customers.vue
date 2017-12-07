@@ -8,11 +8,12 @@
         </div>
         <div v-if="customers.length">
           <div class="py-4 px-6 flex-spaced border-b" v-for="customer in customers" v-bind:key="customer.id">
-            <div class="col-2">
+            <div>
               <gravatar :email="customer.email"></gravatar>
             </div>
-            <div class="col-8">
-
+            <div class="col-9">
+              <p>{{ customer.firstName }} {{ customer.lastName }}</p>
+              <p class="text-sm">{{ customer.email }}</p>
             </div>
             <div class="col-2 text-right">
               <p class="text-sm">
@@ -61,7 +62,7 @@ export default {
         dangerMode: true,
       }).then((wantDelete) => {
         if (wantDelete) {
-          deleteCustomer(customer)
+          this.deleteCustomer(customer)
         }
       })
     }

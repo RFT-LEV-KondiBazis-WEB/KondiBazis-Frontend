@@ -12,7 +12,7 @@ export default {
     },
     size: {
       type: Number,
-      default: 80
+      default: 64
     },
     rating: {
       type: String,
