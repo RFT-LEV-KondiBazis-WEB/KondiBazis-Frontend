@@ -56,6 +56,7 @@
 
       <div class="col-md-8 col-md-offset-4">
         <button type="submit" class="btn btn-primary mb-4">Create</button>
+        <router-link :to="{ name: 'home' }" class="ml-2">Cancel</router-link>
       </div>
     </form>
   </div>

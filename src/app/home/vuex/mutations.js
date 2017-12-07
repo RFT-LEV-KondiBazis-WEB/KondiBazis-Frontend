@@ -10,9 +10,9 @@ export const createGym = (state, gym) => {
   state.gyms.push(gym)
 }
 
-export const updateGym = (state, id, data) => {
-  //let index = state.gyms.indexOf(data, 1)
-  
+export const updateGym = (state, gym) => {
+  let index = state.gyms.findIndex(obj => obj.id == gym.id)
+  state.gyms[index] = gym 
 }
 
 export const deleteGym = (state, gym) => {

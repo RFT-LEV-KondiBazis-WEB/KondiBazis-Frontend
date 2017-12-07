@@ -56,6 +56,7 @@
 
       <div class="col-md-8 col-md-offset-4">
         <button type="submit" class="btn btn-primary mb-4">Update</button>
+        <router-link :to="{ name: 'home' }" class="ml-2">Cancel</router-link>
       </div>
     </form>
   </div>
@@ -89,9 +90,16 @@ export default {
     send() {
       this.updateGym({
         id: this.gym.id,
-        payload: this.gym
+        payload: {
+          name: this.gym.name,
+          city: this.gym.city,
+          address: this.gym.address,
+          zipCode: this.gym.zipCode,
+          description: this.gym.description,
+          openingHours: this.gym.openingHours
+        }
       }).then(() => {
-        //
+        this.$router.replace({ name: 'home' })
       }).catch((errors) => {
         this.errors.record(errors)
       })

@@ -8,7 +8,7 @@
         </div>
         <div v-if="customers.length">
           <div class="py-4 px-6 flex-spaced border-b" v-for="customer in customers" v-bind:key="customer.id">
-            <div>
+            <div class="col p-0">
               <gravatar :email="customer.email"></gravatar>
             </div>
             <div class="col-9">
