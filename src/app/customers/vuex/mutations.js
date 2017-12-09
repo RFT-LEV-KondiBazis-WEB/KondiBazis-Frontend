@@ -11,7 +11,7 @@ export const createCustomer = (state, customer) => {
 }
 
 export const updateCustomer = (state, customer) => {
-  let index = state.customers.findIndex(obj => obj.id == customer.id)
+  let index = state.customers.findIndex(obj => obj.id === customer.id)
   state.customers[index] = customer
 }
 

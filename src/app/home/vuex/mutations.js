@@ -6,12 +6,16 @@ export const setGym = (state, gym) => {
   state.gym = gym
 }
 
+export const setStats = (state, stats) => {
+  state.stats = stats
+}
+
 export const createGym = (state, gym) => {
   state.gyms.push(gym)
 }
 
 export const updateGym = (state, gym) => {
-  let index = state.gyms.findIndex(obj => obj.id == gym.id)
+  let index = state.gyms.findIndex(obj => obj.id === gym.id)
   state.gyms[index] = gym 
 }
 

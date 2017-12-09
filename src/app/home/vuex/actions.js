@@ -7,9 +7,15 @@ export const getGyms = ({ commit }) => {
   })
 }
 
-export const getGym = ({ commit, state }, id) => {
+export const getGym = ({ commit }, id) => {
   return axios.get(API_URL + '/gyms/' + id).then((response) => {
     commit('setGym', response.data.data)
+  })
+}
+
+export const getStats = ({ commit}) => {
+  axios.get(API_URL + '/stats').then((response) => {
+    commit('setStats', response.data.data)
   })
 }
 
