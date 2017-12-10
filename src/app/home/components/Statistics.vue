@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   
@@ -55,6 +55,18 @@ export default {
     ...mapGetters({
       stats: 'home/getStats'
     })
+  },
+
+  methods: {
+    ...mapActions({
+      getStats: 'home/getStats'
+    })
+  },
+
+  mounted() {
+    if (!this.stats) {
+      //this.getStats()
+    }
   }
 
 }

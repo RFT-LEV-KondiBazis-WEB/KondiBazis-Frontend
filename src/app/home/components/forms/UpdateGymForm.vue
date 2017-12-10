@@ -40,7 +40,7 @@
 
       <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('description') }">
         <label for="description" class="block text-grey-darker text-sm font-bold mb-2">Description</label>
-        <textarea type="text" id="description" class="form-control" name="description" placeholder="Description" rows="3" v-model="gym.description"></textarea>
+        <textarea id="description" class="form-control" name="description" placeholder="Description" rows="3" v-model="gym.description"></textarea>
         <span class="help-block" v-if="errors.has('description')">
           {{ errors.get('description').validationMessage }}
         </span>
@@ -48,7 +48,7 @@
 
       <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('openingHours') }">
         <label for="openingHours" class="block text-grey-darker text-sm font-bold mb-2">Opening hours</label>
-        <textarea type="text" id="openingHours" class="form-control" name="openingHours" placeholder="Opening hours" rows="3" v-model="gym.openingHours"></textarea>
+        <textarea id="openingHours" class="form-control" name="openingHours" placeholder="Opening hours" rows="3" v-model="gym.openingHours"></textarea>
         <span class="help-block" v-if="errors.has('openingHours')">
           {{ errors.get('openingHours').validationMessage }}
         </span>

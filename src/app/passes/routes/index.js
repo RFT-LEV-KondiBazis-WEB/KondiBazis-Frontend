@@ -3,16 +3,18 @@ import Passes from '../components/Passes.vue'
 
 export default [
   {
-    path: '/passes',
+    path: '/gyms/:gym/passes',
     component: Passes,
+    props: true,
     name: 'passes',
     meta: {
       needsAuth: true
     }
   },
   {
-    path: '/passes/create',
+    path: '/gyms/:gym/passes/create',
     component: Pass,
+    props: true,
     name: 'create-pass',
     meta: {
       needsAuth: true

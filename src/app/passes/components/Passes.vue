@@ -4,10 +4,31 @@
       <div class="card border-rounded box-shadow">
         <div class="py-4 px-6 border-b flex-spaced">
           <h2 class="text-regular">Passes</h2>
-          <router-link :to="{ name: 'create-pass' }" class="btn btn-primary">Create</router-link>
+          <router-link :to="{ name: 'create-pass', params: { gym: this.gym } }" class="btn btn-primary">Create</router-link>
         </div>
         <div v-if="passes.length">
-
+          <div class="py-4 px-6 flex-spaced border-b" v-for="pass in passes" v-bind:key="pass.id">
+            <div class="col-5 p-0">
+              <p>{{ pass.name }}</p>
+              <p class="text-sm">{{ pass.price }} Ft</p>  
+            </div>
+            <div class="col-5">
+              <div v-if="pass.duration">
+                Duration: <span>{{ pass.duration }}</span>
+              </div>
+              <div v-if="pass.timeDuration">
+                Time duration: <span>{{ pass.timeDuration }}</span> <span>{{ pass.passTimeDurationType | lowercase }}(s)</span>
+              </div>
+              <span v-if="pass.available" class="text-sm text-brand">Available</span>
+              <span v-if="!pass.available" class="text-sm text-danger"Not available></span>
+            </div>
+            <div class="col-2 text-right">
+              <div class="text-sm">
+                <router-link :to="{ name: 'update-pass', params: { id: pass.id } }" class="text-brand">Edit</router-link> |
+                <a href="#" @click.prevent="confirmDelete(pass)" class="text-danger">Delete</a>
+              </div>
+            </div>
+          </div>
         </div>
         <div v-else>
           <p class="py-4 px-6 text-center">There are no passes yet.</p>
@@ -22,6 +43,13 @@ import swal from 'sweetalert'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+
+  props: {
+    gym: {
+      default: null
+    }
+  },
+
   computed: {
     ...mapGetters({
       passes: 'passes/allPasses'
@@ -43,14 +71,14 @@ export default {
         dangerMode: true,
       }).then((wantDelete) => {
         if (wantDelete) {
-          deletePass(pass)
+          this.deletePass(pass)
         }
       })
     }
   },
 
   mounted() {
-    this.getPasses()
+    this.getPasses(this.gym)
   }
 }
 </script>

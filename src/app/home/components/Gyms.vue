@@ -11,14 +11,15 @@
           </div>
           <div v-if="gyms.length">
             <div class="py-4 px-6 flex-spaced border-b" v-for="gym in gyms" v-bind:key="gym.id">
-              <div class="col-10 p-0">
+              <div class="col-9 p-0">
                 <p>{{ gym.name }}</p>
                 <p class="text-sm">{{ gym.city }}, {{ gym.address }}</p>
               </div>
-              <div class="col-2 text-right">
+              <div class="col-3 text-right">
                 <p class="text-sm">
                   <router-link :to="{ name: 'update-gym', params: { id: gym.id } }" class="text-brand">Edit</router-link> |
-                  <a href="#" @click.prevent="confirmDelete(gym)" class="text-danger">Delete</a>
+                  <a href="#" @click.prevent="confirmDelete(gym)" class="text-danger">Delete</a> |
+                  <router-link :to="{ name: 'passes', params: { gym: gym.id } }">Passes</router-link>
                 </p>
               </div>
             </div>

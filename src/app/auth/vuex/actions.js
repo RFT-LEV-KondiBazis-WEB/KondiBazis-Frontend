@@ -33,7 +33,7 @@ export const updateProfile = ({ commit }, { payload }) => {
 }
 
 export const fetchUser = ({ commit }) => {
-  return axios.get(API_URL + '/profil').then((response) => {
+  return axios.get(API_URL + '/profile').then((response) => {
     commit('setAuthenticated', true)
     commit('setUserData', response.data.data)
   })
