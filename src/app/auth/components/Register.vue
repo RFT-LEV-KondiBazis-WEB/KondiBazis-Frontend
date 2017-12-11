@@ -51,6 +51,14 @@
               </span>
             </div>
 
+            <div class="form-group mb-4" v-bind:class="{ 'has-error': errors.has('passwordConfirm') }">
+              <label for="passwordConfirm" class="block text-grey-darker text-sm font-bold mb-2">Password confirmation</label>
+              <input type="password" id="passwordConfirm" class="form-control" name="passwordConfirm" placeholder="******************" v-model="passwordConfirm">
+              <span class="help-block" v-if="errors.has('passwordConfirm')">
+                {{ errors.get('passwordConfirm').validationMessage }}
+              </span>
+            </div>
+
             <div class="col-md-8 col-md-offset-4">
               <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
               <router-link :to="{ name: 'login' }" class="btn btn-secondary btn-block mb-4">Login</router-link>
@@ -74,6 +82,7 @@ export default {
       username: null,
       email: null,
       password: null,
+      passwordConfirm: null,
       errors: new Errors()
     }
   },
@@ -87,10 +96,11 @@ export default {
       this.register({
         payload: {
           firstName: this.firstName,
-          firstName: this.firstName,
+          lastName: this.lastName,
           username: this.username,
           email: this.email,
-          password: this.password
+          password: this.password,
+          passwordConfirm: this.passwordConfirm
         }
       }).then(() => {
         this.$router.replace({ name: 'home' })
