@@ -27,6 +27,14 @@ export const createGym = ({ commit }, { payload }) => {
   })
 }
 
+export const createManager = ({ commit }, { id, payload }) => {
+  return axios.post(API_URL + '/gyms/' + id + '/manager', payload).then(() => {
+    // Do nothing
+  }).catch((error) => {
+    return Promise.reject(error.response.data.errors)
+  })
+}
+
 export const updateGym = ({ commit }, { id, payload }) => {
   return axios.put(API_URL + '/gyms/' + id, payload).then((response) => {
     commit('updateGym', response.data.data)
