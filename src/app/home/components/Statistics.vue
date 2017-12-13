@@ -27,17 +27,17 @@
         <div class="row">
           <div class="col-4">
             <div class="px-6 py-2 border-l borderl-light-overlay">
-              <p class="text-light"><strong class="text-medium">213</strong> customers</p>
+              <p class="text-light"><strong class="text-medium" v-text="stats.countOfCustomers"></strong> customers</p>
             </div>
           </div>
           <div class="col-4">
             <div class="px-6 py-2 border-l borderl-light-overlay">
-              <p class="text-light"><strong class="text-medium">12</strong> gyms</p>
+              <p class="text-light"><strong class="text-medium" v-text="stats.countOfGyms"></strong> gyms</p>
             </div>
           </div>
           <div class="col-4">
             <div class="px-6 py-2 border-l borderl-light-overlay">
-              <p class="text-light"><strong class="text-medium">34</strong> passes</p>
+              <p class="text-light"><strong class="text-medium" v-text="stats.countOfPasses"></strong> passes</p>
             </div>
           </div>
         </div>
@@ -64,9 +64,7 @@ export default {
   },
 
   mounted() {
-    if (!this.stats) {
-      //this.getStats()
-    }
+    this.getStats()
   }
 
 }
