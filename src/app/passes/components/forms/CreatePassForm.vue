@@ -82,7 +82,7 @@ import { mapActions } from 'vuex'
 import Errors from '../../../../helpers/Errors'
 
 export default {
-  props: ['gym'],
+  props: ['gymId'],
   
   data() {
     return {
@@ -104,7 +104,7 @@ export default {
 
     send() {
       this.createPass({
-        gym: this.gym,
+        gym: this.gymId,
         payload: {
           name: this.name,
           price: this.price,
@@ -115,7 +115,7 @@ export default {
           available: this.available
         }
       }).then(() => {
-        this.$router.replace({ name: 'passes', params: { gym: this.gym } })
+        this.$router.replace({ name: 'passes', params: { gymId: this.gymId } })
       }).catch((errors) => {
         this.errors.record(errors)
       })

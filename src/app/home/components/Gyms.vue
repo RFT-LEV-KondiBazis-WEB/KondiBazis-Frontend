@@ -24,7 +24,7 @@
                 <p class="text-sm">
                   <router-link :to="{ name: 'update-gym', params: { id: gym.id } }" class="text-brand">Edit</router-link> |
                   <a href="#" @click.prevent="confirmDelete(gym)" class="text-danger">Delete</a> |
-                  <router-link :to="{ name: 'passes', params: { gym: gym.id } }" class="btn-link">Passes</router-link>
+                  <router-link :to="{ name: 'passes', params: { gymId: gym.id } }" class="btn-link">Passes</router-link>
                 </p>
               </div>
             </div>

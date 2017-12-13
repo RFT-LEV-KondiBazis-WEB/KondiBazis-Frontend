@@ -3,7 +3,7 @@ import Passes from '../components/Passes.vue'
 
 export default [
   {
-    path: '/gyms/:gym/passes',
+    path: '/gyms/:gymId/passes',
     component: Passes,
     props: true,
     name: 'passes',
@@ -12,7 +12,7 @@ export default [
     }
   },
   {
-    path: '/gyms/:gym/passes/create',
+    path: '/gyms/:gymId/passes/create',
     component: Pass,
     props: true,
     name: 'create-pass',

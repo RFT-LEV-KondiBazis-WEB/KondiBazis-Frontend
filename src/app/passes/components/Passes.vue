@@ -1,10 +1,10 @@
 <template>
-  <div class="container py-8">
+  <div class="container py-8" v-if="gym">
     <div class="constrain-xl mx-auto">
       <div class="card border-rounded box-shadow">
         <div class="py-4 px-6 border-b flex-spaced">
-          <h2 class="text-regular">Passes</h2>
-          <router-link :to="{ name: 'create-pass', params: { gym: this.gym } }" class="btn btn-primary">Create</router-link>
+          <h2 class="text-regular">Passes in {{ gym.name }}</h2>
+          <router-link :to="{ name: 'create-pass', params: { gymId: this.gymId } }" class="btn btn-primary">Create</router-link>
         </div>
         <div v-if="passes.length">
           <div class="py-4 px-6 flex-spaced border-b" v-for="pass in passes" v-bind:key="pass.id">
@@ -45,19 +45,21 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
 
   props: {
-    gym: {
+    gymId: {
       default: null
     }
   },
 
   computed: {
     ...mapGetters({
+      gym: 'home/currentGym',
       passes: 'passes/allPasses'
     })
   },
 
   methods: {
     ...mapActions({
+      getGym: 'home/getGym',
       getPasses: 'passes/getPasses',
       deletePass: 'passes/deletePass'
     }),
@@ -78,7 +80,8 @@ export default {
   },
 
   mounted() {
-    this.getPasses(this.gym)
+    this.getGym(this.gymId)
+    this.getPasses(this.gymId)
   }
 }
 </script>

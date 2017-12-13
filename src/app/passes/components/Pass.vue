@@ -5,8 +5,8 @@
         <div v-if="id">
           <update-pass-form :id="id"></update-pass-form>
         </div>
-        <div v-if="gym">
-          <create-pass-form :gym="gym"></create-pass-form>
+        <div v-if="gymId">
+          <create-pass-form :gymId="gymId"></create-pass-form>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ export default {
   },
 
   props: {
-    gym: {
+    gymId: {
       default: null
     },
     id: {
