@@ -5,3 +5,7 @@ export const currentCustomer = (state) => {
 export const allCustomers = (state) => {
   return state.customers
 }
+
+export const currentCustomerPasses = (state) => {
+  return state.customerPasses
+}

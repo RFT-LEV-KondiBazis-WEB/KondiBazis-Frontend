@@ -1,5 +1,6 @@
 import Customer from '../components/Customer.vue'
 import Customers from '../components/Customers.vue'
+import CustomerPasses from '../components/CustomerPasses.vue'
 
 export default [
   {
@@ -23,6 +24,15 @@ export default [
     component: Customer,
     props: true,
     name: 'update-customer',
+    meta: {
+      needsAuth: true
+    }
+  },
+  {
+    path: '/customers/:customerId/passes',
+    component: CustomerPasses,
+    props: true,
+    name: 'customer-passes',
     meta: {
       needsAuth: true
     }

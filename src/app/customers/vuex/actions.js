@@ -13,6 +13,20 @@ export const getCustomer = ({ commit }, id) => {
   })
 }
 
+export const getCustomerPasses = ({ commit }, customer) => {
+  return axios.get(API_URL + '/customers/' + customer + '/passes').then((response) => {
+    commit('setCustomerPasses', response.data.data)
+  })
+}
+
+export const addPassToCustomer = ({ commit }, { customerId, payload }) => {
+  return axios.post(API_URL + '/customers/' + customerId + '/passes', payload).then((response) => {
+    commit('addPassToCustomer', response.data.data)
+  }).catch((error) => {
+    return Promise.reject(error.response.data.errors)
+  })
+}
+
 export const createCustomer = ({ commit }, { payload }) => {
   return axios.post(API_URL + '/customers', payload).then((response) => {
     commit('createCustomer', response.data.data)

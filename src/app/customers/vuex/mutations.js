@@ -6,8 +6,16 @@ export const setCustomer = (state, customer) => {
   state.customer = customer
 }
 
+export const setCustomerPasses = (state, passes) => {
+  state.customerPasses = passes
+}
+
 export const createCustomer = (state, customer) => {
   state.customers.push(customer)
+}
+
+export const addPassToCustomer = (state, pass) => {
+  state.customerPasses.push(pass)
 }
 
 export const updateCustomer = (state, customer) => {

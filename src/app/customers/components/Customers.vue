@@ -11,14 +11,15 @@
             <div class="col p-0">
               <gravatar :email="customer.email"></gravatar>
             </div>
-            <div class="col-9">
+            <div class="col-8">
               <p>{{ customer.firstName }} {{ customer.lastName }}</p>
               <p class="text-sm">{{ customer.email }}</p>
             </div>
-            <div class="col-2 text-right">
+            <div class="col-3 text-right">
               <p class="text-sm">
                 <router-link :to="{ name: 'update-customer', params: { id: customer.id } }" class="text-brand">Edit</router-link> |
-                <a href="#" @click.prevent="confirmDelete(customer)" class="text-danger">Delete</a>
+                <a href="#" @click.prevent="confirmDelete(customer)" class="text-danger">Delete</a> |
+                <router-link :to="{ name: 'customer-passes', params: { customerId: customer.id } }" class="btn-link">Passes</router-link>
               </p>
             </div>
           </div>

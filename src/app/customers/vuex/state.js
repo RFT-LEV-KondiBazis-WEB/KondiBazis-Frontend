@@ -1,4 +1,5 @@
 export default {
   customer: null,
-  customers: []
+  customers: [],
+  customerPasses: []
 }
