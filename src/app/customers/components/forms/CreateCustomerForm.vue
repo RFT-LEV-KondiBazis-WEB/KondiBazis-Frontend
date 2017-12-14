@@ -52,7 +52,7 @@
 
           <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('birthdayDate') }">
             <label for="birthdayDate" class="block text-grey-darker text-sm font-bold mb-2">Birth date</label>
-            <masked-input id="birthdayDate" mask="1111-11-11" class="form-control" name="birthdayDate" v-model="birthdayDate"></masked-input>
+            <datepicker input-class="form-control" name="birthdayDate" v-model="birthdayDate"></datepicker>
             <span class="help-block" v-if="errors.has('birthdayDate')">
               {{ errors.get('birthdayDate').validationMessage }}
             </span>
@@ -70,13 +70,13 @@
 
 <script>
 import { mapActions } from 'vuex'
-import MaskedInput from 'vue-masked-input'
+import Datepicker from 'vuejs-datepicker'
 import Errors from '../../../../helpers/Errors'
 
 export default {
 
   components: {
-    MaskedInput
+    Datepicker
   },
 
   data() {
