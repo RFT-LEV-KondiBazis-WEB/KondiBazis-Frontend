@@ -13,18 +13,18 @@
               <p class="text-sm">{{ pass.price }} Ft</p>  
             </div>
             <div class="col-5">
-              <div v-if="pass.duration">
+              <div v-if="pass.passType == 'SUITABLE'">
                 Duration: <span>{{ pass.duration }}</span>
               </div>
-              <div v-if="pass.timeDuration">
+              <div v-if="pass.passType == 'TIME_LIMITED'">
                 Time duration: <span>{{ pass.timeDuration }}</span> <span>{{ pass.passTimeDurationType | lowercase }}(s)</span>
               </div>
               <span v-if="pass.available" class="text-sm text-brand">Available</span>
-              <span v-if="!pass.available" class="text-sm text-danger"Not available></span>
+              <span v-if="!pass.available" class="text-sm text-danger">Not available></span>
             </div>
             <div class="col-2 text-right">
               <div class="text-sm">
-                <router-link :to="{ name: 'update-pass', params: { id: pass.id } }" class="text-brand">Edit</router-link> |
+                <router-link :to="{ name: 'update-pass', params: { id: pass.id, gymId: gymId } }" class="text-brand">Edit</router-link> |
                 <a href="#" @click.prevent="confirmDelete(pass)" class="text-danger">Delete</a>
               </div>
             </div>

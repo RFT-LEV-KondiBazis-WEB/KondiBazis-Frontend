@@ -21,7 +21,7 @@ export default [
     }
   },
   {
-    path: '/passes/update/:id',
+    path: '/gyms/:gymId/passes/:id',
     component: Pass,
     props: true,
     name: 'update-pass',

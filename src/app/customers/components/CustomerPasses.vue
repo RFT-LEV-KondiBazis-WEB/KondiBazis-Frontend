@@ -5,6 +5,7 @@
       <create-pass-for-customer :customer="customer"></create-pass-for-customer>
 
       <div class="card border-rounded box-shadow">
+        <div class="text-xl text-regular border-b px-6 py-4">Used passes</div>
         <div v-if="customerPasses.length">
           <div class="py-4 px-6 flex-spaced border-b" v-for="pass in customerPasses" v-bind:key="pass.id">
             <div class="col-5 p-0">

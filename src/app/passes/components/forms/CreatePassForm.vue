@@ -90,7 +90,7 @@ export default {
       price: null,
       passType: "TIME_LIMITED",
       passTimeDurationType: "DAY",
-      duration: null,
+      duration: '',
       timeDuration: null,
       available: true,
       errors: new Errors()

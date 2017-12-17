@@ -82,7 +82,7 @@ import { mapActions, mapGetters } from 'vuex'
 import Errors from '../../../../helpers/Errors'
 
 export default {
-  props: ['id'],
+  props: ['id', 'gymId'],
 
   data() {
     return {
@@ -123,7 +123,7 @@ export default {
   },
 
   mounted() {
-    this.getPass(this.id)
+    this.getPass([this.gymId, this.id])
   }
 }
 </script>

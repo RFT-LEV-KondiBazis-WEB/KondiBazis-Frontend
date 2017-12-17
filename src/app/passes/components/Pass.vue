@@ -2,10 +2,10 @@
   <div class="container py-8">
     <div class="constrain-xl mx-auto">
       <div class="card border-rounded box-shadow">
-        <div v-if="id">
-          <update-pass-form :id="id"></update-pass-form>
+        <div v-if="id && gymId">
+          <update-pass-form :id="id" :gymId="gymId"></update-pass-form>
         </div>
-        <div v-if="gymId">
+        <div v-else-if="gymId">
           <create-pass-form :gymId="gymId"></create-pass-form>
         </div>
       </div>

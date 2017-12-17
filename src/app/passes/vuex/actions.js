@@ -7,8 +7,8 @@ export const getPasses = ({ commit }, gym) => {
   })
 }
 
-export const getPass = ({ commit }, id) => {
-  return axios.get(API_URL + '/passes/' + id).then((response) => {
+export const getPass = ({ commit }, [gym, id]) => {
+  return axios.get(API_URL + '/gyms/' + gym + '/passes/' + id).then((response) => {
     commit('setPass', response.data.data)
   })
 }
