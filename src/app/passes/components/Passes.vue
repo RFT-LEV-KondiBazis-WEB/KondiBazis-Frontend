@@ -18,7 +18,7 @@
           <div class="col-4">
           <div class="py-4 px-6 border-l border-light-overlay">
               <p class="text-2xl text-light text-hairline">{{ gymStats.sumCustomersOnSysdateByGym || 0 }}</p>
-              <p class="text-light-soft text-light">Total customers today</p>
+              <p class="text-light-soft text-light">Registered customers on today</p>
             </div>
           </div>  
         </div>
