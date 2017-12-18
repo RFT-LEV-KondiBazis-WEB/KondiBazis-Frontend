@@ -10,6 +10,10 @@ export const setStats = (state, stats) => {
   state.stats = stats
 }
 
+export const setGymStats = (state, stats) => {
+  state.gymStats = stats
+}
+
 export const createGym = (state, gym) => {
   state.gyms.push(gym)
 }

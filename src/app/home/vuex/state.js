@@ -1,5 +1,6 @@
 export default {
   gym: null,
   gyms: [],
-  stats: []
+  stats: [],
+  gymStats: []
 }

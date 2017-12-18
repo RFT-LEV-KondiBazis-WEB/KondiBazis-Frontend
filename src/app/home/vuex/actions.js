@@ -19,6 +19,12 @@ export const getStats = ({ commit}) => {
   })
 }
 
+export const getGymStats = ({ commit }, id) => {
+  axios.get(API_URL + '/gyms/' + id + '/stat').then((response) => {
+    commit('setGymStats', response.data.data)
+  })
+}
+
 export const createGym = ({ commit }, { payload }) => {
   return axios.post(API_URL + '/gyms', payload).then((response) => {
     commit('createGym', response.data.data)

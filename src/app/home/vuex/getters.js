@@ -9,3 +9,7 @@ export const allGyms = (state) => {
 export const getStats = (state) => {
   return state.stats
 }
+
+export const currentGymStats = (state) => {
+  return state.gymStats
+}

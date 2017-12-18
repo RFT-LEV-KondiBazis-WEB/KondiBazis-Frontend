@@ -4,20 +4,20 @@
       <div class="row">
         <div class="col-4">
           <div class="py-4 px-6 border-l border-light-overlay">
-            <p class="text-2xl text-light text-hairline">$3.233</p>
-            <p class="text-light-soft text-light">Total revenue</p>
+            <p class="text-2xl text-light text-hairline">{{ stats.countOfCustomers }}</p>
+            <p class="text-light-soft text-light">Total customers</p>
           </div>
         </div>
         <div class="col-4">
           <div class="py-4 px-6 border-l border-light-overlay">
-            <p class="text-2xl text-light text-hairline">$233</p>
-            <p class="text-light-soft text-light">Yesterday</p>
+            <p class="text-2xl text-light text-hairline">{{ stats.countOfPasses }}</p>
+            <p class="text-light-soft text-light">Total passes</p>
           </div>
         </div>
         <div class="col-4">
         <div class="py-4 px-6 border-l border-light-overlay">
-            <p class="text-2xl text-light text-hairline">$133</p>
-            <p class="text-light-soft text-light">Today</p>
+            <p class="text-2xl text-light text-hairline">{{ stats.countOfGyms }}</p>
+            <p class="text-light-soft text-light">Total gyms</p>
           </div>
         </div>  
       </div>
@@ -26,19 +26,13 @@
       <div class="container">
         <div class="row">
           <div class="col-4">
-            <div class="px-6 py-2 border-l borderl-light-overlay">
-              <p class="text-light"><strong class="text-medium" v-text="stats.countOfCustomers"></strong> customers</p>
-            </div>
+            <div class="px-6 py-2 border-l borderl-light-overlay"></div>
           </div>
           <div class="col-4">
-            <div class="px-6 py-2 border-l borderl-light-overlay">
-              <p class="text-light"><strong class="text-medium" v-text="stats.countOfGyms"></strong> gyms</p>
-            </div>
+            <div class="px-6 py-2 border-l borderl-light-overlay"></div>
           </div>
           <div class="col-4">
-            <div class="px-6 py-2 border-l borderl-light-overlay">
-              <p class="text-light"><strong class="text-medium" v-text="stats.countOfPasses"></strong> passes</p>
-            </div>
+            <div class="px-6 py-2 border-l borderl-light-overlay"></div>
           </div>
         </div>
       </div>
