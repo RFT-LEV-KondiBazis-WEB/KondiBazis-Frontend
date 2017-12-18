@@ -33,7 +33,7 @@
           </span>
         </div>
 
-        <div v-if="pass.passType == 'TIME_LIMITED'" class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('passTimeDuration') }">
+        <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('passTimeDuration') }">
           <label for="timeDuration" class="block text-grey-darker text-sm font-bold mb-2">Time duration</label>
           <div class="flex row">
             <div class="col-6">

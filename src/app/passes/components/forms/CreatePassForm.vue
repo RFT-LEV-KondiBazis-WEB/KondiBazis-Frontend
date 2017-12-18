@@ -32,7 +32,7 @@
           </span>
         </div>
 
-        <div v-if="passType == 'TIME_LIMITED'" class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('passTimeDuration') }">
+        <div class="form-group md:col-6 sm:col-12 sm:mb-4" v-bind:class="{ 'has-error': errors.has('passTimeDuration') }">
           <label for="timeDuration" class="block text-grey-darker text-sm font-bold mb-2">Time duration</label>
           <div class="flex row">
             <div class="col-6">
@@ -86,12 +86,12 @@ export default {
   
   data() {
     return {
-      name: null,
-      price: null,
+      name: '',
+      price: '',
       passType: "TIME_LIMITED",
       passTimeDurationType: "DAY",
       duration: '',
-      timeDuration: null,
+      timeDuration: 1,
       available: true,
       errors: new Errors()
     }
