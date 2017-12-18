@@ -7,7 +7,7 @@
         <div class="card border-rounded box-shadow">
           <div class="py-4 px-6 border-b flex-spaced">
             <h2 class="text-regular">Gyms</h2>
-            <router-link :to="{ name: 'create-gym' }" class="btn btn-primary">Create</router-link>
+            <router-link v-if="user.userRole == 'ADMIN'" :to="{ name: 'create-gym' }" class="btn btn-primary">Create</router-link>
           </div>
           <div v-if="gyms.length">
             <div class="py-4 px-6 flex-spaced border-b" v-for="gym in gyms" v-bind:key="gym.id">
@@ -22,8 +22,10 @@
               </div>
               <div class="col-3 text-right">
                 <p class="text-sm">
-                  <router-link :to="{ name: 'update-gym', params: { id: gym.id } }" class="text-brand">Edit</router-link> |
-                  <a href="#" @click.prevent="confirmDelete(gym)" class="text-danger">Delete</a> |
+                  <span v-if="user.userRole == 'ADMIN'">
+                    <router-link :to="{ name: 'update-gym', params: { id: gym.id } }" class="text-brand">Edit</router-link> |
+                    <a href="#" @click.prevent="confirmDelete(gym)" class="text-danger">Delete</a> |
+                  </span>
                   <router-link :to="{ name: 'passes', params: { gymId: gym.id } }" class="btn-link">Passes</router-link>
                 </p>
               </div>

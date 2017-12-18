@@ -24,8 +24,10 @@
             </div>
             <div class="col-2 text-right">
               <div class="text-sm">
-                <router-link :to="{ name: 'update-pass', params: { id: pass.id, gymId: gymId } }" class="text-brand">Edit</router-link> |
-                <a href="#" @click.prevent="confirmDelete(pass)" class="text-danger">Delete</a>
+                <router-link :to="{ name: 'update-pass', params: { id: pass.id, gymId: gymId } }" class="text-brand">Edit</router-link>
+                <span v-if="user.userRole == 'ADMIN'">
+                 | <a href="#" @click.prevent="confirmDelete(pass)" class="text-danger">Delete</a>
+                </span>
               </div>
             </div>
           </div>
@@ -52,6 +54,7 @@ export default {
 
   computed: {
     ...mapGetters({
+      user: 'auth/user',
       gym: 'home/currentGym',
       passes: 'passes/allPasses'
     })
