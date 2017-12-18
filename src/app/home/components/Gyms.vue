@@ -5,11 +5,11 @@
     <div class="container py-8">
       <div class="constrain-xl mx-auto">
         <div class="card border-rounded box-shadow">
-          <div class="py-4 px-6 border-b flex-spaced">
+          <div class="py-4 px-6 border-b flex-spaced" v-if="user">
             <h2 class="text-regular">Gyms</h2>
             <router-link v-if="user.userRole == 'ADMIN'" :to="{ name: 'create-gym' }" class="btn btn-primary">Create</router-link>
           </div>
-          <div v-if="gyms.length">
+          <div v-if="gyms.length && user">
             <div class="py-4 px-6 flex-spaced border-b" v-for="gym in gyms" v-bind:key="gym.id">
               <div class="col-5 p-0">
                 <p>{{ gym.name }}</p>
